@@ -1,12 +1,22 @@
 {
   "name": "the_movie_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A movie exploration app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "export NODE_ENV=test && jasmine"
   },
   "keywords": [],
   "author": "Damian Rivas",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.3.1",
+    "request": "^2.88.0"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4"
+  }
 }

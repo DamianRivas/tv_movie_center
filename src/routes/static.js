@@ -1,7 +1,6 @@
 const router = require("express").Router();
+const staticController = require("../controllers/staticController");
 
-router.get("/", (req, res, next) => {
-  res.send("Hello!");
-});
+router.get("/", staticController.index);
 
 module.exports = router;

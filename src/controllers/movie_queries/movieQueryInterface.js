@@ -15,5 +15,19 @@ module.exports = {
       .catch(err => {
         callback(err);
       });
+  },
+
+  // TODO - Implement the search query
+  search(search_query, callback) {
+    fetch(
+      `https://api.themoviedb.org/3/search/multi?${api_key}&${language}&query=${search_query}&page=1&include_adult=false`
+    )
+      .then(res => res.json())
+      .then(json => {
+        callback(null, json);
+      })
+      .catch(err => {
+        callback(err);
+      });
   }
 };

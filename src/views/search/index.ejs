@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../static/partials/head.ejs %>>
+</head>
+<body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+        <h1 class="display-3">Search Results</h1>
+
+        <section>
+            <h2 class="display-5">Results for "<%= search_query %>"</h2>
+            <ul>
+                <% results.forEach(result => { %>
+                    <% if (result.title) { %>
+                        <li><%= result.title %>: <%= result.media_type %></li>
+                    <% } else if (result.name) { %>
+                        <li><%= result.name %>: <%= result.media_type %></li>
+                    <% } %>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>

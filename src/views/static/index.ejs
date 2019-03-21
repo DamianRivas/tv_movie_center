@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <% include ./partials/head.ejs %>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
     <% include ./partials/navbar.ejs %>
@@ -13,12 +14,16 @@
         </header>
 
         <section>
-            <h2 class="display-4">Popular TV Shows</h2>
-            <ul>
-                <% shows.forEach(show => { %>
-                    <li><%= show.name %></li>
-                <% }) %>
-            </ul>
+            <h2 class="display-4 pop-heading">Popular TV Shows</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+            <% shows.forEach(show => { %>
+                <div class="card">
+                    <a href="/tv/<%= show.id %>">
+                    <img class="img-fluid" src="https://image.tmdb.org/t/p/w342/<%= show.poster_path %>" alt="TV Poster">
+                    </a>
+                </div>
+            <% }) %>
+            </div>
         </section>
     </main>
 

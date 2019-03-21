@@ -15,7 +15,7 @@ function fetchFromDB(url, callback) {
 }
 
 module.exports = {
-  getPopularMovies(callback) {
+  getPopularShows(callback) {
     const URL = `${base_url}/discover/tv?${api_key}&${language}&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&include_null_first_air_dates=false`;
     fetchFromDB(URL, callback);
   },

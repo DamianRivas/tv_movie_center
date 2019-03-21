@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ../static/partials/head.ejs %>>
+    <% include ../static/partials/head.ejs %>
 </head>
 <body>
     <% include ../static/partials/navbar.ejs %>
@@ -13,10 +13,12 @@
             <h2 class="display-5">Results for "<%= search_query %>"</h2>
             <ul>
                 <% results.forEach(result => { %>
-                    <% if (result.title) { %>
-                        <li><%= result.title %>: <%= result.media_type %></li>
-                    <% } else if (result.name) { %>
-                        <li><%= result.name %>: <%= result.media_type %></li>
+                    <% if (result.media_type === "movie") { %>
+                        <li><a href="#"><%= result.title %></a>: <%= result.media_type %></li>
+                    <% } else if (result.media_type === "tv") { %>
+                        <li><a href="/tv/<%= result.id %>"><%= result.name %></a>: <%= result.media_type %></li>
+                    <% } else if (result.media_type === "person") { %>
+                        <li><a href="#"><%= result.name %></a>: <%= result.media_type %></li>
                     <% } %>
                 <% }) %>
             </ul>

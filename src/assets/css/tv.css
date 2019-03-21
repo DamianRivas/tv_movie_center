@@ -1,0 +1,17 @@
+.tv-hero {
+  background-size: cover;
+  background-position: center;
+}
+
+.jumbotron {
+  min-height: 450px;
+  color: white;
+}
+
+.show-title {
+  line-height: 500px;
+}
+
+main {
+  margin-bottom: 50px;
+}

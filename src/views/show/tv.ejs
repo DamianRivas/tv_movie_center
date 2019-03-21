@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../static/partials/head.ejs %>
+    <link rel="stylesheet" href="/css/tv.css">
+</head>
+<body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+        <header
+            class="jumbotron my-4 tv-hero"
+            style="background-image:linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),url(https://image.tmdb.org/t/p/original/<%= show.backdrop_path %>)"
+        >
+            <h1 class="display-3 show-title"><%= show.name %></h1>
+        </header>
+
+        <section class="row">
+            <div class="col-4 poster-container">
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w500/<%= show.poster_path %>" alt="TV Poster">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <p class="col-2"><strong>Seasons</strong></p>
+                    <p class="col-10"><%= show.number_of_seasons%></p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Number of Episodes</strong></p>
+                    <p class="col-10"><%= show.number_of_episodes %></p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Overview</strong></p>
+                    <p class="col-10"><%= show.overview %></p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Genres</strong></p>
+                    <p class="col-10">
+                        <% show.genres.map(genre => genre.name).forEach(name => { %>
+                            <span><%= `${name}, ` %></span>
+                        <% }) %>
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Runtime</strong></p>
+                    <p class="col-10"><%= show.episode_run_time %> min</p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Avg. Rating</strong></p>
+                    <p class="col-10"><%= show.vote_average %> / 10.0</p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Network</strong></p>
+                    <p class="col-10"><%= show.networks[0].name %></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>

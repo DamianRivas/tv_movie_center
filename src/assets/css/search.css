@@ -1,0 +1,25 @@
+.search-header {
+  margin-top: 30px;
+}
+
+.search-result {
+  margin-top: 20px;
+}
+
+.search-container {
+  margin-bottom: 50px;
+}
+
+.badge {
+  margin-left: 10px;
+}
+
+.profile-picture {
+  max-width: 92px;
+}
+
+.no-img {
+  width: 92px;
+  height: 120px;
+  background-color: lightgray;
+}

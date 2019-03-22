@@ -2,26 +2,45 @@
 <html lang="en">
 <head>
     <% include ../static/partials/head.ejs %>
+    <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
     <% include ../static/partials/navbar.ejs %>
 
-    <main class="container">
-        <h1 class="display-3">Search Results</h1>
+    <main class="container search-container">
+        <h1 class="display-3 search-header">Search Results</h1>
 
         <section>
             <h2 class="display-5">Results for "<%= search_query %>"</h2>
-            <ul>
                 <% results.forEach(result => { %>
-                    <% if (result.media_type === "movie") { %>
-                        <li><a href="#"><%= result.title %></a>: <%= result.media_type %></li>
-                    <% } else if (result.media_type === "tv") { %>
-                        <li><a href="/tv/<%= result.id %>"><%= result.name %></a>: <%= result.media_type %></li>
-                    <% } else if (result.media_type === "person") { %>
-                        <li><a href="#"><%= result.name %></a>: <%= result.media_type %></li>
-                    <% } %>
+                    <div class="media search-result">
+                        <% if (result.poster_path) { %>
+                            <img class="mr-3 img-fluid" src="https://image.tmdb.org/t/p/w92/<%= result.poster_path %>" alt="poster">
+                        <% } else if (result.profile_path) { %>
+                            <img class="mr-3 img-fluid profile-picture" src="https://image.tmdb.org/t/p/w185/<%= result.profile_path %>" alt="profile picture">
+                        <% } else { %>
+                            <div class="mr-3 no-img"></div>
+                        <% } %>
+                        <div class="media-body">
+                            <% if (result.media_type === "movie") { %>
+                                <a href="#">
+                                    <h4 class="mt-0"><%= result.title %> <span class="badge badge-danger"><%= result.media_type %></span></h4>
+                                </a>
+                                <%= result.overview %>
+                            <% } else if (result.media_type === "tv") { %>
+                                <a href="/tv/<%= result.id %>">
+                                    <h4 class="mt-0"><%= result.name %> <span class="badge badge-primary"><%= result.media_type %></span></h4>
+                                </a>
+                                <%= result.overview %>
+                            <% } else if (result.media_type === "person") { %>
+                                <a href="#">
+                                    <h4 class="mt-0"><%= result.name %> <span class="badge badge-warning"><%= result.media_type %></span></h4>
+                                </a>
+                                <%= result.overview %>
+                            <% } %>
+                        </div>
+                    </div>
                 <% }) %>
-            </ul>
         </section>
     </main>
 

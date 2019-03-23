@@ -23,7 +23,7 @@
                         <% } %>
                         <div class="media-body">
                             <% if (result.media_type === "movie") { %>
-                                <a href="#">
+                                <a href="/movie/<%= result.id %>">
                                     <h4 class="mt-0"><%= result.title %> <span class="badge badge-danger"><%= result.media_type %></span></h4>
                                 </a>
                                 <%= result.overview %>

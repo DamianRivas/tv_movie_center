@@ -28,5 +28,10 @@ module.exports = {
   getTvShow(id, callback) {
     const URL = `${base_url}/tv/${id}?${api_key}&${language}`;
     fetchFromDB(URL, callback);
+  },
+
+  getMovie(id, callback) {
+    const URL = `${base_url}/movie/${id}?${api_key}&${language}`;
+    fetchFromDB(URL, callback);
   }
 };

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../static/partials/head.ejs %>
+    <link rel="stylesheet" href="/css/tv.css">
+</head>
+<body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+        <header
+            class="jumbotron my-4 tv-hero"
+            style="background-image:linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),url(https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>)"
+        >
+            <h1 class="display-3 movie-title"><%= movie.title %></h1>
+        </header>
+
+        <section class="row">
+            <div class="col-4 poster-container">
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w500/<%= movie.poster_path %>" alt="TV Poster">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <p class="col-2"><strong>Overview</strong></p>
+                    <p class="col-10"><%= movie.overview %></p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Release Date</strong></p>
+                    <p class="col-10"><%= (new Date(movie.release_date)).toLocaleDateString() %></p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Genres</strong></p>
+                    <p class="col-10">
+                        <% movie.genres.map(genre => genre.name).forEach(name => { %>
+                            <span><%= `${name}, ` %></span>
+                        <% }) %>
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Runtime</strong></p>
+                    <p class="col-10"><%= movie.runtime %> min</p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Avg. Rating</strong></p>
+                    <p class="col-10"><%= movie.vote_average %> / 10.0</p>
+                </div>
+                <div class="row">
+                    <p class="col-2"><strong>Production Companies</strong></p>
+                    <p class="col-10">
+                        <% movie.production_companies.map(production_company => production_company.name).forEach(name => { %>
+                            <span><%= `${name}, ` %></span>
+                        <% }) %>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>

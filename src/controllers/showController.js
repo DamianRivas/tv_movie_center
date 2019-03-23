@@ -9,5 +9,15 @@ module.exports = {
       // console.log(show);
       res.render("show/tv", { show });
     });
+  },
+
+  showMovie(req, res, next) {
+    MovieQueryInterface.getMovie(req.params.id, (err, movie) => {
+      if (err) {
+        next(err);
+      }
+      // console.log(movie);
+      res.render("show/movie", { movie });
+    });
   }
 };

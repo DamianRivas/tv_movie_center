@@ -7,7 +7,7 @@ module.exports = {
       if (err) {
         next(err);
       }
-      console.log(data.results[0]);
+      // console.log(data.results[0]);
       res.render("search/index", {
         results: data.results,
         search_query: req.query.search_query

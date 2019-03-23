@@ -33,7 +33,7 @@
                                 </a>
                                 <%= result.overview %>
                             <% } else if (result.media_type === "person") { %>
-                                <a href="#">
+                                <a href="/person/<%= result.id %>">
                                     <h4 class="mt-0"><%= result.name %> <span class="badge badge-warning"><%= result.media_type %></span></h4>
                                 </a>
                                 <%= result.overview %>

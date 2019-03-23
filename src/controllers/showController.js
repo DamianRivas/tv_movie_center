@@ -19,5 +19,15 @@ module.exports = {
       // console.log(movie);
       res.render("show/movie", { movie });
     });
+  },
+
+  showPerson(req, res, next) {
+    MovieQueryInterface.getPerson(req.params.id, (err, person) => {
+      if (err) {
+        next(err);
+      }
+      // console.log(person);
+      res.render("show/person", { person });
+    });
   }
 };

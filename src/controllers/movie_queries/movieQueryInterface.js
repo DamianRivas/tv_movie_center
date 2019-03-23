@@ -33,5 +33,10 @@ module.exports = {
   getMovie(id, callback) {
     const URL = `${base_url}/movie/${id}?${api_key}&${language}`;
     fetchFromDB(URL, callback);
+  },
+
+  getPerson(id, callbabk) {
+    const URL = `${base_url}/person/${id}?${api_key}&${language}&append_to_response=movies`;
+    fetchFromDB(URL, callbabk);
   }
 };

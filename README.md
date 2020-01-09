@@ -2,6 +2,10 @@
 
 **TV Movie Center** is an entertaintment media discovery application. Use it to discover today's pupular tv shows, or use it to search for your favorite shows, movies, and actors.
 
+### Check out this project live!
+
+https://tv-movie-center.herokuapp.com/
+
 ## Project Requirements
 
 - List popular TV shows on initial load and render a search bar.
